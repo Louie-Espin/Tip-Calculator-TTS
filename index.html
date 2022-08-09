@@ -17,6 +17,7 @@
             <section>
                 <label for="billAmt">Enter your bill amount:</label>
                 <input type="number" name="billAmt" id="billAmt" required min="0.00" step="0.01" value="0.00" />
+                <p class="errorMsg hidden"></p>
 
                 <p>Select a tip amount:</p>
                 <button id="tenPercent">10%</button>
@@ -26,9 +27,11 @@
                 <button id="otherTipAmt">Other</button>
                 <label class="sr-only" for="customTip">Custom tip amount:</label>
                 <input class="hidden" type="number" name="customTip" id="customTip" min="0.00" step="0.01" />
+                <p class="errorMsg hidden"></p>
 
                 <label for="numOfGuests">Number of guests:</label>
                 <input type="number" name="numOfGuests" id="numOfGuests" min="1" step="1" value="1" />
+                <p class="errorMsg hidden"></p>
 
                 <button id="calculateTip">Calculate Tip</button>
                 <p class="hidden" id="totalTip"></p>
