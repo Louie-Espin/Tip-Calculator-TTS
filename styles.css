@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 body {
    background-image: url("money.jpg");
     height: 500px; 
@@ -32,3 +33,11 @@ h2 {
     color: white;
     
 }
+=======
+@charset "utf-8";
+
+:root {
+    font-size: 18px;
+}
+
+>>>>>>> bca5944457c53caab2be5780decd08960755b438

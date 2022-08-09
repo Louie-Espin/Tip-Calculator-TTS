@@ -15,20 +15,34 @@
         </header>
         <section>
             <h2 class="sr-only">Bill and Tip Details</h2>
-            <form>
+            <section>
                 <label for="billAmt">Enter your bill amount:</label>
-                <input type="text" name="billAmt" id="billAmt" />
-                <label for="numOfGuests">Number of guests:</label>
-                <input type="text" name="numOfGuests" id="numOfGuests" />
+                <input type="number" name="billAmt" id="billAmt" required min="0.00" step="0.01" value="0.00" />
+                <p class="errorMsg hidden"></p>
+
                 <p>Select a tip amount:</p>
                 <button id="tenPercent">10%</button>
-                <button id="fifteenPercent">15%</button>
+                <button class="selected" id="fifteenPercent">15%</button>
                 <button id="twentyPercent">20%</button>
                 <button id="twentyFivePercent">25%</button>
                 <button id="otherTipAmt">Other</button>
+                <label class="sr-only" for="customTip">Custom tip amount:</label>
+                <input class="hidden" type="number" name="customTip" id="customTip" min="0.00" step="0.01" />
+                <p class="errorMsg hidden"></p>
+
+                <label for="numOfGuests">Number of guests:</label>
+                <input type="number" name="numOfGuests" id="numOfGuests" min="1" step="1" value="1" />
+                <p class="errorMsg hidden"></p>
+
                 <button id="calculateTip">Calculate Tip</button>
+<<<<<<< HEAD
                 </form>
             </section>
         </div>
+=======
+                <p class="hidden" id="totalTip"></p>
+            </section>
+        </section>
+>>>>>>> bca5944457c53caab2be5780decd08960755b438
     </body>
 </html>
