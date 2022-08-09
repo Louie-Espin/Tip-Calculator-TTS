@@ -12,6 +12,14 @@ function justTheTipCalculator() {
   let tipAmount = document.querySelector('#tipamount').value;
   let numOfGuests = document.querySelector('#numOfGuests').value;
 */
+
+//implement numofGuests 
+
+//implement calculation of tip from (bill amt * tipamt selected) / numofGuests
+
+
+
+
 let calcButton = document.getElementById("calculateTip");
 
 calcButton.onclick = function () {
