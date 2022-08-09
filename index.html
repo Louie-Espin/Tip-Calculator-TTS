@@ -14,19 +14,21 @@
         </header>
         <section>
             <h2 class="sr-only">Bill and Tip Details</h2>
-            <form>
+            <section>
                 <label for="billAmt">Enter your bill amount:</label>
-                <input type="text" name="billAmt" id="billAmt" />
+                <input type="number" name="billAmt" id="billAmt" required />
                 <label for="numOfGuests">Number of guests:</label>
-                <input type="text" name="numOfGuests" id="numOfGuests" />
+                <input type="number" name="numOfGuests" id="numOfGuests" />
                 <p>Select a tip amount:</p>
                 <button id="tenPercent">10%</button>
                 <button id="fifteenPercent">15%</button>
                 <button id="twentyPercent">20%</button>
                 <button id="twentyFivePercent">25%</button>
                 <button id="otherTipAmt">Other</button>
+                <label class="sr-only" for="customTip">Custom tip amount</label>
+                <input class="hidden" type="number" name="customTip" id="customTip" />
                 <button id="calculateTip">Calculate Tip</button>
-            </form>
+            </section>
         </section>
     </body>
 </html>
