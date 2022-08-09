@@ -25,7 +25,6 @@ function justTheTipCalculator() {
 
 //convert total to dollar decimal amount
 
-/
 
 //}
 
