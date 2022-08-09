@@ -1,0 +1,34 @@
+body {
+   background-image: url("money.jpg");
+    height: 500px; 
+    width: 100px;
+    background-position: center;
+    background-repeat: no-repeat; /* Do not repeat the image */
+    background-size: cover;
+}
+
+#container {
+    background: rgba(90, 95, 62, 0.575);
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+    margin: auto;
+    height: 300px;
+    width: 360px;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    padding: 20px;
+    line-height: 30px;
+}
+
+h1 {
+    background-color: beige;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+}
+
+h2 {
+    color: white;
+    
+}
