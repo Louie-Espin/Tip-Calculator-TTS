@@ -25,15 +25,14 @@ body {
     height: 100vh;
     line-height: 1.5;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
-    -webkit-backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(1px);
     backdrop-filter: blur(5px);
     align-items: center;
 }
 
-#container {
+#wrapper {
     background-color: rgba(90, 95, 62, 0.6);
-    border-top-left-radius: 20px;
-    border-top-right-radius: 20px;
+    border-radius: 20px;
     border: 1px solid black;
     margin: 0 auto;
     width: 500px;
@@ -52,12 +51,12 @@ p {
     min-height: 30px;
 }
 
-#container > section {
+#wrapper > section {
+    position: relative;
     padding: 1rem;
 }
 
 section > section {
-    position: relative;
     margin-top: 1rem;
 }
 
@@ -106,20 +105,32 @@ button {
 
 span::before {
     position: absolute;
-    top: 38px;
-    right: 423px;
+    top: 58px;
+    left: 32px;
     content: "\24";
     color: #444444;
     font-size: 1.5rem;
 }
 
-#calculateTip, #totalTip {
-    display: inline-block;
-    margin: 0 auto;
+#calculateTip {
+    width: 50%;
+    margin: 0 auto 1rem;
+}
+
+#tipDisplay {
+    display: flex;
+    width: 100%;
+    min-height: 100px;
+    text-align: center;
+    background-color: rgb(237, 237, 237);
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+    align-items: center;
 }
 
 #totalTip {
-    margin-left: .5rem;
+    margin: 0 auto;
+    font-size: 40px;
 }
 
 .hidden {
