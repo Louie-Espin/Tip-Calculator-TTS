@@ -9,6 +9,7 @@
         <title>Tip Calculator</title>
     </head>
     <body>
+        <div id="container">
         <header>
             <h1>Just the Tip Calculator</h1>
         </header>
@@ -31,11 +32,14 @@
 
                 <label for="numOfGuests">Number of guests:</label>
                 <input type="number" name="numOfGuests" id="numOfGuests" min="1" step="1" value="1" />
-                <p class="errorMsg hidden"></p>
+                <p class="errorMsg hidden" style="display:none;"></p> //added inline style to display as hidden/none
 
                 <button id="calculateTip">Calculate Tip</button>
+                </form>
+            </section>
                 <p class="hidden" id="totalTip"></p>
             </section>
+        </div>
         </section>
     </body>
 </html>
