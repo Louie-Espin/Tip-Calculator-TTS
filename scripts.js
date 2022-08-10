@@ -1,79 +1,71 @@
 "use strict";
 
-//Initialize values to 0
 let userInput = document.querySelector("#billAmt");
 let numGuests = document.querySelector("#numOfGuests");
 let errorMsg = document.querySelectorAll(".errorMsg");
 let calcBtn = document.querySelector("#calculateTip");
+let tipBtns = document.querySelectorAll(".tipBtn");
 let tipTotal = document.querySelector("#totalTip");
 let custTip = document.querySelector("#customTip");
 
+// object to hold preset tip amounts
 let tipAmt = {
-  tenPercent: .10,
-  twentyPercent: .20,
-  twentyFivePercent: .25,
-  fifteenPercent: .15
+  tenPercent: ".10",
+  twentyPercent: ".20",
+  twentyFivePercent: ".25",
+  fifteenPercent: ".15"
 };
 
+// calculate total tip amount per guest
+function calculateTotal() {
 
-function calculateTotal(tipPercentage) {
-
-  // let numericUserInput = Number(userInput);
-  // let numericCustTip = Number(custTip);
   let tip = 0;
 
-  if (userInput.value === "" || userInput.value < 0) { //isNaN(!numericUserInput)
+  // Display error msg if bill amount is empty or less than or equal to 0
+  if (userInput.value == "" || userInput.value <= 0) {
     errorMsg[0].classList.remove("hidden");
     errorMsg[0].innerHTML = "Please enter a positive value.";
   } else {
     errorMsg[0].classList.add("hidden");
   }
 
-  if (numGuests.value <= 0) {
+  // Display error msg if tip amount is empty or less than or equal to 0
+  if (custTip.value == "" || custTip.value <= 0) {
     errorMsg[1].classList.remove("hidden");
     errorMsg[1].innerHTML = "Please enter a positive value.";
   } else {
     errorMsg[1].classList.add("hidden");
   }
 
-  if (custTip.value != "") {
-    custTip.classList.remove("hidden");
-
-    if (custTip.value < 0) {
-      errorMsg[2].innerHTML = "Please enter a positive value.";
-    } else {
-      errorMsg[2].classList.add("hidden");
-    }
+  // Display error msg if guest amount is empty or less than or equal to 0
+  if (numGuests.value == "" || numGuests.value <= 0) {
+    errorMsg[2].classList.remove("hidden");
+    errorMsg[2].innerHTML = "Please enter a positive value.";
+  } else {
+    errorMsg[2].classList.add("hidden");
   }
 
-  switch (tipPercentage) {
-    case tenPercent:
-      tip = .10;
-      break;
-    case fifteenPercent:
-      tip = .15;
-      break;
-    case twentyPercent:
-      tip = .20;
-      break;
-    case twentyFivePercent:
-      tip = .25;
-      break;
-    case otherTipAmt:
-      tip = custTip.value;
-      break;
-  }
+  // Calculate tip
+  tip = (billAmt.value * custTip.value) / numGuests.value;
+  tip = ((tip * 100) / 100).toFixed(2);
 
-  console.log(tip);
-  tip = (billAmt * tip) / numGuests;
-  tipTotal.innerHTML = "Total tip: " + tip;
+  // Display tip amount
+  tipTotal.innerHTML = "Total tip: " + "$" + tip;
   tipTotal.classList.remove("hidden");
 }
 
+// Determine which tip button is clicked
 function tipBtn(event) {
   let tipPercentage = tipAmt[event.currentTarget.id];
-  console.log(userInput.value);
-  calculateTotal(tipPercentage);
+  document.querySelector("#customTip").value = tipPercentage;
 }
 
+// Event listeners
+function addEventToTipBtns(tipBtns) {
+  for (let btn of tipBtns) {
+    btn.addEventListener("click", tipBtn);
+  }
+}
+
+addEventToTipBtns(tipBtns);
 calcBtn.addEventListener("click", calculateTotal);
