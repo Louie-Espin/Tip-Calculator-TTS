@@ -1,31 +1,136 @@
 @charset "utf-8";
+
+:root {
+    font-size: 20px;
+}
+
+html {
+    box-sizing: border-box;
+  }
+  
+  * {
+    margin: 0;
+    padding: 0;
+  }
+  
+  *, *:before, *:after {
+    box-sizing: inherit;
+  }
+  
 body {
-    background-image: url("tipplate.jpg");
-    height: 500px;
-    width: 100px;
-    background-position: center;
-    background-repeat: no-repeat;
-    /* Do not repeat the image */
-    background-size: cover;
+    display: flex;
+    justify-content: center;
+    gap: .5rem;
+    background: url("tipplate.jpg") no-repeat center/cover;
+    height: 100vh;
+    line-height: 1.5;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    -webkit-backdrop-filter: blur(5px);
+    backdrop-filter: blur(5px);
+    align-items: center;
 }
 
 #container {
-    background: rgba(90, 95, 62, 0.575);
+    background-color: rgba(90, 95, 62, 0.6);
     border-top-left-radius: 20px;
     border-top-right-radius: 20px;
-    margin: auto;
-    height: 360px;
-    width: 360px;
+    border: 1px solid black;
+    margin: 0 auto;
+    width: 500px;
+}
+
+h1 {
+    margin: 0;
+    padding: 1rem 0;
+    text-align: center;
+    background-color: rgb(237, 237, 237);
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+}
+
+p {
+    min-height: 30px;
+}
+
+#container > section {
+    padding: 1rem;
+}
+
+section > section {
+    position: relative;
+    margin-top: 1rem;
+}
+
+section > div {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    -moz-column-gap: .5rem;
+         column-gap: .5rem;
+    margin-top: .5rem;
+}
+
+div > button {
+    width: 100%;
+}
+
+div > button:hover, #calculateTip:hover {
+    background-color: #cccccc;
+}
+
+div > button:active {
+    transform: scale(.95);
+}
+
+#calculateTip:active {
+    transform: scale(.95);
+}
+
+input, button {
+    display: block;
+    font-size: inherit;
+    font-family: inherit;
+    padding: .8rem;
+    border: 4px inset #3c4029;
+    border-radius: 10px;
+}
+
+input {
+    padding-left: 1.5rem;
+    width: 100%;
+}
+
+button {
+    width: 50%;
+    border: 4px solid #3c4029;
+}
+
+span::before {
     position: absolute;
-    left: 50%;
-    top: 50%;
-    transform: translate(-50%, -50%);
-    padding: 0 20px;
-    line-height: 30px;
+    top: 38px;
+    right: 423px;
+    content: "\24";
+    color: #444444;
+    font-size: 1.5rem;
+}
+
+#calculateTip, #totalTip {
+    display: inline-block;
+    margin: 0 auto;
+}
+
+#totalTip {
+    margin-left: .5rem;
 }
 
 .hidden {
-    display: none;
+    visibility: hidden;
+}
+
+.errorMsg {
+    min-height: 30px;
+    margin: .25rem 0;
+    color: #8b0008;
+    font-weight: bold;
 }
 
 .sr-only {
@@ -35,15 +140,4 @@ body {
     width: 1px;
     height: 1px;
     overflow: hidden;
-}
-
-h1 {
-    text-align: center;
-    background-color: beige;
-    border-top-left-radius: 20px;
-    border-top-right-radius: 20px;
-}
-
-h2 {
-    color: white;
 }

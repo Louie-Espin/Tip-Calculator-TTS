@@ -50,7 +50,7 @@ function calculateTotal() {
   tip = ((tip * 100) / 100).toFixed(2);
 
   // Display tip amount
-  tipTotal.innerHTML = "Total tip: " + "$" + tip;
+  tipTotal.innerHTML = `Total tip: <strong>$${tip}</strong>`;
   tipTotal.classList.remove("hidden");
 }
 
@@ -66,6 +66,5 @@ function addEventToTipBtns(tipBtns) {
     btn.addEventListener("click", tipBtn);
   }
 }
-
 addEventToTipBtns(tipBtns);
 calcBtn.addEventListener("click", calculateTotal);

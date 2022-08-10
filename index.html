@@ -10,36 +10,42 @@
     </head>
     <body>
         <div id="container">
-        <header>
-            <h1>Tip Calculator</h1>
-        </header>
-        <section>
-            <h2 class="sr-only">Bill and Tip Details</h2>
+            <header>
+                <h1>Tip Calculator</h1>
+            </header>
             <section>
-                <label for="billAmt">Enter your bill amount:</label>
-                <input type="number" name="billAmt" id="billAmt" min="0.00" step="0.01" value="0.00" />
-                <p class="errorMsg hidden"></p>
+                <h2 class="sr-only">Bill and Tip Details</h2>
 
-                <p>Select a tip amount:</p>
-                <button id="tenPercent">10%</button>
-                <button class="selected" id="fifteenPercent">15%</button>
-                <button id="twentyPercent">20%</button>
-                <button id="twentyFivePercent">25%</button>
-                <button id="otherTipAmt">Other</button>
-                <label class="sr-only" for="customTip">Custom tip amount:</label>
-                <input class="hidden" type="number" name="customTip" id="customTip" min="0.00" step="0.01" />
-                <p class="errorMsg hidden"></p>
+                <section>
+                    <h2 class="sr-only">Bill Amount</h2>
+                    <label for="billAmt">Enter your bill amount:</label>
+                    <span><input type="number" name="billAmt" id="billAmt" min="0.00" step="0.01" value="0.00" /></span>
+                    <p class="errorMsg hidden"></p>
+                </section>
 
-                <label for="numOfGuests">Number of guests:</label>
-                <input type="number" name="numOfGuests" id="numOfGuests" min="1" step="1" value="1" />
-                <p class="errorMsg hidden"></p>
+                <section>
+                    <h2 class="sr-only">Tip Amount</h2>
+                    <label for="customTip">Enter custom gratuity or preset value:</label>
+                    <input type="number" name="customTip" id="customTip" min="0.00" step="0.01" />
+                    <div>
+                        <button class="tipBtn" id="tenPercent">10%</button>
+                        <button class="tipBtn" id="fifteenPercent">15%</button>
+                        <button class="tipBtn" id="twentyPercent">20%</button>
+                        <button class="tipBtn" id="twentyFivePercent">25%</button>
+                    </div>
+                    <p class="errorMsg hidden"></p>
+                </section>
+
+                <section>
+                    <h2 class="sr-only">Number of Guests</h2>
+                    <label for="numOfGuests">Number of Guests:</label>
+                    <input type="number" name="numOfGuests" id="numOfGuests" min="1" step="1" value="1" />
+                    <p class="errorMsg hidden"></p>
+                </section>
 
                 <button id="calculateTip">Calculate Tip</button>
-                </form>
-            </section>
                 <p class="hidden" id="totalTip"></p>
             </section>
         </div>
-        </section>
     </body>
 </html>
