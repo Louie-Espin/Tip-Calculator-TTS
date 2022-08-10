@@ -21,7 +21,7 @@ function justTheTipCalculator() {
 //if any text fields = empty, prompt error message
 //if (tipAmt === "" || billAmt === "") {
 //$(".errorMsg hidden").text("Please input values for Bill and select a tip amount").fadeIn();
-//}
+//} else {
 
 //implement numofGuests 
 //if numOfGuest === "" || numOfGuests < 1) {
