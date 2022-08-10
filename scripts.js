@@ -1,51 +1,79 @@
 "use strict";
 
-/*
 //Initialize values to 0
-let billAmt = 0;
-let tipAmt = 0;
-let numOfGuests = 0;
-let tenPercent = 10;
-let twentyPercent = 20;
-let twentyFivePercent = 25;
-let fifteenPercent = 15;
+let userInput = document.querySelector("#billAmt");
+let numGuests = document.querySelector("#numOfGuests");
+let errorMsg = document.querySelectorAll(".errorMsg");
+let calcBtn = document.querySelector("#calculateTip");
+let tipTotal = document.querySelector("#totalTip");
+let custTip = document.querySelector("#customTip");
 
-//Main function here
-function justTheTipCalculator() {
-  let billAmt = document.querySelector('#billAmt').value;
-  let tipAmount = document.querySelector('#tipamount').value;
-  let numOfGuests = document.querySelector('#numOfGuests').value;
-*/
-
-//error handling
-//if any text fields = empty, prompt error message
-//if (tipAmt === "" || billAmt === "") {
-//$(".errorMsg hidden").text("Please input values for Bill and select a tip amount").fadeIn();
-//}
-
-//implement numofGuests 
-//if numOfGuest === "" || numOfGuests < 1) {
-//$(".errorMsg hidden").text("Please enter positive number for number of peeps").fadeIn();
-//} else {
-//document.querySelector('#numOfGuests').value;
-//}
-
-//implement calculation of tip from (bill amt * tipamt selected) / numofGuests
-//let totalTipAmount = (billAmt * tipamt selected) / numOfGuests;
-
-//convert total to dollar decimal amount
-//totalTipAmount = Math.round(totalTipAmount * 100) / 100;
-//totalTipAmount = totalTipAmont.tofixed(2);
+let tipAmt = {
+  tenPercent: .10,
+  twentyPercent: .20,
+  twentyFivePercent: .25,
+  fifteenPercent: .15
+};
 
 
+function calculateTotal(tipPercentage) {
 
+  // let numericUserInput = Number(userInput);
+  // let numericCustTip = Number(custTip);
+  let tip = 0;
 
-//}
+  if (userInput.value === "" || userInput.value < 0) { //isNaN(!numericUserInput)
+    errorMsg[0].classList.remove("hidden");
+    errorMsg[0].innerHTML = "Please enter a positive value.";
+  } else {
+    errorMsg[0].classList.add("hidden");
+  }
 
+  if (numGuests.value <= 0) {
+    errorMsg[1].classList.remove("hidden");
+    errorMsg[1].innerHTML = "Please enter a positive value.";
+  } else {
+    errorMsg[1].classList.add("hidden");
+  }
 
+  if (custTip.value != "") {
+    custTip.classList.remove("hidden");
 
-let calcButton = document.getElementById("calculateTip");
+    if (custTip.value < 0) {
+      errorMsg[2].innerHTML = "Please enter a positive value.";
+    } else {
+      errorMsg[2].classList.add("hidden");
+    }
+  }
 
-calcButton.onclick = function () {
-    alert("Just the tip!")
+  switch (tipPercentage) {
+    case tenPercent:
+      tip = .10;
+      break;
+    case fifteenPercent:
+      tip = .15;
+      break;
+    case twentyPercent:
+      tip = .20;
+      break;
+    case twentyFivePercent:
+      tip = .25;
+      break;
+    case otherTipAmt:
+      tip = custTip.value;
+      break;
+  }
+
+  console.log(tip);
+  tip = (billAmt * tip) / numGuests;
+  tipTotal.innerHTML = "Total tip: " + tip;
+  tipTotal.classList.remove("hidden");
 }
+
+function tipBtn(event) {
+  let tipPercentage = tipAmt[event.currentTarget.id];
+  console.log(userInput.value);
+  calculateTotal(tipPercentage);
+}
+
+calcBtn.addEventListener("click", calculateTotal);
