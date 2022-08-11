@@ -10,10 +10,10 @@ let custTip = document.querySelector("#customTip");
 
 // object to hold preset tip amounts
 let tipAmt = {
-  tenPercent: ".10",
-  twentyPercent: ".20",
-  twentyFivePercent: ".25",
-  fifteenPercent: ".15"
+  tenPercent: "10",
+  fifteenPercent: "15",
+  twentyPercent: "20",
+  twentyFivePercent: "25"
 };
 
 // calculate total tip amount per guest
@@ -46,8 +46,15 @@ function calculateTotal() {
   }
 
   // Calculate tip
-  tip = (billAmt.value * custTip.value) / numGuests.value;
-  tip = ((tip * 100) / 100).toFixed(2);
+  if (custTip.value != "10" || custTip.value != "15" ||
+    custTip.value != "20" || custTip.value != "25") {
+    tip = ((billAmt.value * custTip.value / 100) / numGuests.value).toFixed(2);
+    console.log(tip)
+  } else {
+    tip = (billAmt.value * custTip.value) / numGuests.value;
+    tip = ((tip * 100) / 100).toFixed(2);
+    console.log(tip)
+  }
 
   // Display tip amount
   tipTotal.innerHTML = `Total tip: <strong>$${tip}</strong>`;
