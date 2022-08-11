@@ -24,7 +24,7 @@ function calculateTotal() {
   // Display error msg if bill amount is empty or less than or equal to 0
   if (userInput.value == "" || userInput.value <= 0) {
     errorMsg[0].classList.remove("hidden");
-    errorMsg[0].innerHTML = "Please enter a positive value.";
+    errorMsg[0].innerHTML = "Please enter a value greater than zero.";
   } else {
     errorMsg[0].classList.add("hidden");
   }
